@@ -1,0 +1,5 @@
+# see /usr/local/share/dunst/dunstrc
+# use `killall dunst` to reload dunstrc
+[global]
+    font = Monospace 24
+    geometry = "0x5-5+20"

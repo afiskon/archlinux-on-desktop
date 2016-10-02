@@ -160,3 +160,4 @@ bar {
 }
 
 exec xxkb &
+exec dunst &

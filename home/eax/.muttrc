@@ -60,14 +60,15 @@ set sleep_time = 0
 set crypt_use_gpgme=yes
 set crypt_autosign=yes
 set crypt_replyencrypt=yes
+message-hook '!(~g|~G) ~b"^-----BEGIN\ PGP\ (SIGNED\ )?MESSAGE"' "exec check-traditional-pgp"
 
 # default account
 source ~/.mutt/eaxme
 
 # switching between accounts
-macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/eaxme<enter><change-folder>!<enter>'
-macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/devzen<enter><change-folder>!<enter>'
-macro index <f4> '<sync-mailbox><enter-command>source ~/.mutt/pgpro<enter><change-folder>!<enter>'
+# macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/eaxme<enter><change-folder>!<enter>'
+# macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/devzen<enter><change-folder>!<enter>'
+# macro index <f4> '<sync-mailbox><enter-command>source ~/.mutt/pgpro<enter><change-folder>!<enter>'
 
 # address book
 source ~/.mutt/contacts

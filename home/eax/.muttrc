@@ -1,0 +1,68 @@
+# shift+g = fetch new email
+bind index "G" imap-fetch-mail
+
+# enable threads
+set sort=threads
+
+# enable caching
+#set header_cache="~/.mutt/header_cache"
+#set message_cachedir="~/.mutt/message_cache"
+
+# old unread messages
+color index green default "~O"
+
+# new unread messages
+color index brightgreen default "~N"
+
+# messages to me
+color index cyan default "~p"
+color index brightcyan default "~p~O"
+color index brightcyan default "~p~N"
+
+# messages from me
+color index yellow default "~P"
+
+# tagged messages
+color index red default "~T"
+
+# messages about to be deleted
+color index brightyellow default "~D"
+
+# message displaying settings
+color hdrdefault green default
+color header brightgreen default ^Subject:
+color quoted cyan default
+color signature red default
+
+# text/html and images support
+set mailcap_path=~/.mutt/mailcap
+auto_view text/html
+alternative_order text/plain text/html
+macro attach 'V' "<pipe-entry>cat >~/temp/email.html && $BROWSER ~/temp/email.html<enter>"
+macro attach 'I' "<pipe-entry>cat >~/temp/image.tmp && gpicview ~/temp/image.tmp<enter>"
+
+macro pager \cb <pipe-entry>'urlscan -c'<enter> 'Follow links with urlscan'
+
+# scroll index line by line instead of page by page
+set menu_scroll
+
+# scroll message line by line using arraws
+bind pager <up> previous-line
+bind pager <down> next-line
+
+# smart word-wrap
+set smart_wrap
+
+# disable artifitial pauses
+set sleep_time = 0
+
+# default account
+source ~/.mutt/eaxme
+
+# switching between accounts
+macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/eaxme<enter><change-folder>!<enter>'
+macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/devzen<enter><change-folder>!<enter>'
+macro index <f4> '<sync-mailbox><enter-command>source ~/.mutt/pgpro<enter><change-folder>!<enter>'
+
+# address book
+source ~/.mutt/contacts

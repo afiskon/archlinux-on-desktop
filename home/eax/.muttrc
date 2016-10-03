@@ -38,7 +38,7 @@ color signature red default
 set mailcap_path=~/.mutt/mailcap
 auto_view text/html
 alternative_order text/plain text/html
-macro attach 'V' "<pipe-entry>cat >~/temp/email.html && $BROWSER ~/temp/email.html<enter>"
+macro attach 'V' "<pipe-entry>cat >~/temp/email.html && chromium ~/temp/email.html<enter>"
 macro attach 'I' "<pipe-entry>cat >~/temp/image.tmp && gpicview ~/temp/image.tmp<enter>"
 
 macro pager \cb <pipe-entry>'urlscan -c'<enter> 'Follow links with urlscan'

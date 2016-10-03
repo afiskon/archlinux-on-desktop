@@ -57,6 +57,9 @@ highlight ExtraWhitespace ctermbg=red guibg=red
 " Doesn't work too good for Python
 match ExtraWhitespace /\([ ]\{4\}\|\s\+$\)/
 
+" limit the width of e-mail text to 72 characters
+au BufRead /tmp/mutt-* set tw=72
+
 " quickfix example
 ":set makeprg=grep
 ":set errorformat=%f:%l:%m

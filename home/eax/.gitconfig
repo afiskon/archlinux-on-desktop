@@ -1,0 +1,7 @@
+[merge]
+	tool = vimdiff
+[mergetool]
+	prompt = false
+[core]
+	excludesfile = /home/eax/.gitignore_global
+	pager = less -x4

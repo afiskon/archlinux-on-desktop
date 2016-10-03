@@ -1,0 +1,14 @@
+tags
+*-build.sh
+check.sh
+install.sh
+kill.sh
+*.session
+*-test.py
+FlameGraph
+out.perf-folded
+perf.data
+perf.svg
+gdb.script
+regression.diffs
+regression.out

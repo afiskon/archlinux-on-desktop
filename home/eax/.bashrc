@@ -5,6 +5,8 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+advice | cowsay
+
 alias ls='ls --color=auto'
 PS1='[\u@\h \w]\$ '
 
@@ -16,6 +18,10 @@ export EDITOR=vim
 
 alias setclip='xclip -selection c'
 alias getclip='xclip -selection clipboard -o'
+
+alias mutt_eaxme='mutt -e "source ~/.mutt/eaxme"'
+alias mutt_devzen='mutt -e "source ~/.mutt/devzen"'
+alias mutt_pgpro='mutt -e "source ~/.mutt/pgpro"'
 
 alias less='less -x4'
 

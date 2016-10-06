@@ -1,3 +1,5 @@
+syntax on
+
 colorscheme desert
 ":set expandtab
 set number

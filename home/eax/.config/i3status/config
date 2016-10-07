@@ -12,7 +12,7 @@ general {
 }
 
 # order += "ipv6"
-order += "disk /home"
+order += "disk /home/eax"
 #order += "run_watch DHCP"
 #order += "run_watch VPN"
 order += "wireless _first_"
@@ -59,6 +59,6 @@ load {
         format = "%1min"
 }
 
-disk "/home" {
+disk "/home/eax" {
         format = "%avail"
 }

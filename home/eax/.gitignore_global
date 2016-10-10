@@ -2,7 +2,9 @@ tags
 *-build.sh
 check.sh
 install.sh
+install-single.sh
 kill.sh
+testcore.sh
 *.session
 *-test.py
 FlameGraph
@@ -12,3 +14,4 @@ perf.svg
 gdb.script
 regression.diffs
 regression.out
+*.patch

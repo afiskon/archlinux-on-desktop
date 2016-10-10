@@ -13,8 +13,8 @@ PS1='[\u@\h \w]\$ '
 export PATH="/home/eax/bin:/home/eax/work/postgrespro/postgresql-install/bin:$PATH"
 export EDITOR=vim
 
-#export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-#source /usr/local/bin/virtualenvwrapper.sh
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+source /usr/bin/virtualenvwrapper.sh
 
 alias setclip='xclip -selection c'
 alias getclip='xclip -selection clipboard -o'

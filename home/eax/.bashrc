@@ -31,4 +31,3 @@ alias gitlog='git log --graph --pretty=format:"%h  %ai  %an <%ae>  %s"'
 alias gpg="gpg --keyserver pgp.mit.edu"
 alias commitpush="git commit -am 'fix' ; git push origin HEAD"
 alias rain="mplayer -loop 0 ~/data/heap/rain-and-thunder.mp3"
-alias autoremove="sudo pacman -R `pacman -Qdtq`"

@@ -12,6 +12,7 @@ PS1='[\u@\h \w]\$ '
 
 export PATH="/home/eax/bin:/home/eax/work/postgrespro/postgresql-install/bin:$PATH"
 export EDITOR=vim
+export HISTCONTROL=ignorespace
 
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 source /usr/bin/virtualenvwrapper.sh

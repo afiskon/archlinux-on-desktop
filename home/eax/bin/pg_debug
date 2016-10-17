@@ -1,0 +1,15 @@
+#!/usr/bin/env python3
+
+import re
+import os
+import sys
+
+data = ""
+for _ in range(0,3):
+	data = data + sys.stdin.readline()
+
+m = re.search("""(\d{2,})""", data)
+pid = int(m.group(1))
+cmd = ("""xdotool key "Super_L+d" && xdotool type "xfce4-terminal" && xdotool key Return && """ + 
+       """xdotool type "gdb -p {}" && xdotool key Return""").format(pid)
+os.system(cmd)

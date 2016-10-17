@@ -11,5 +11,5 @@ for _ in range(0,3):
 m = re.search("""(\d{2,})""", data)
 pid = int(m.group(1))
 cmd = ("""xdotool key "Super_L+d" && xdotool type "xfce4-terminal" && xdotool key Return && """ + 
-       """xdotool type "gdb -p {}" && xdotool key Return""").format(pid)
+       """sleep 0.2 && xdotool type "gdb -p {}" && xdotool key Return""").format(pid)
 os.system(cmd)

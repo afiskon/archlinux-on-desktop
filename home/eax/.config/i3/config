@@ -164,7 +164,8 @@ bar {
         status_command i3status
 }
 
-exec randwallpaper &
+# exec randwallpaper &
+exec feh --bg-scale ~/data/wallpapers/archlinux-black.png &
 exec pulseaudio --start &
 exec xxkb &
 exec dunst &

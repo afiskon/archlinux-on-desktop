@@ -1,4 +1,0 @@
-#!/bin/sh
-
-# asoundconf set-default-card Digital
-pactl set-default-source alsa_input.usb-Shure_Incorporated_Shure_Digital-00.analog-stereo

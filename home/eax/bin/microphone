@@ -1,0 +1,25 @@
+#!/usr/bin/env python3
+
+import subprocess
+import sys
+
+
+def usage():
+    print("Usage: " + sys.argv[0] + " <on|off>")
+    sys.exit(1)
+
+if len(sys.argv) < 2:
+    usage()
+
+opt = sys.argv[1]
+
+if opt == "on":
+    # asoundconf set-default-card Digital
+    cmd = "pactl set-default-source alsa_input.usb-Shure_Incorporated_Shure_Digital-00.analog-stereo"
+elif opt == "off":
+    # asoundconf set-default-card PCH
+    cmd = "pactl set-default-source alsa_input.pci-0000_00_1b.0.analog-stereo"
+else:
+    usage()
+
+subprocess.call(cmd, shell=True)

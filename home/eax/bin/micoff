@@ -1,4 +1,0 @@
-#!/bin/sh
-
-# asoundconf set-default-card PCH
-pactl set-default-source alsa_input.pci-0000_00_1b.0.analog-stereo

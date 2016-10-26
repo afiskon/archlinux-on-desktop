@@ -1,3 +1,0 @@
-#!/bin/sh
-
-sudo systemctl start wpa_supplicant@wlp2s0

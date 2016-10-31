@@ -1,0 +1,8 @@
+#!/bin/sh
+
+set -e
+
+scrot -s ~/temp/temp.png
+URL=`upload ~/temp/temp.png`
+echo $URL | xclip -selection c
+notify-send "Uploaded!" -t 2500

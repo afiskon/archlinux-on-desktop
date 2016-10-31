@@ -1,0 +1,39 @@
+#!/usr/bin/env python3
+
+import os
+import sys
+import subprocess
+
+upload_server = "afiskon@afiskon.ru"
+upload_path = "afiskon.ru/s/" # NB: ending with /
+upload_url = "http://afiskon.ru/s/" # NB: ending with /
+
+def exec(cmd):
+  temp = subprocess.check_output(cmd, shell = True)
+  return temp.decode('utf-8').strip()
+
+def terminate(str):
+  print(str + "\n", file = sys.stderr)
+  sys.exit(1)
+
+if len(sys.argv) < 2:
+  terminate("Usage: " + sys.argv[0] + " <file> <add_str>")
+
+fname = sys.argv[1] # XXX check there is no special characters!
+basename = os.path.basename(fname)
+
+add_str = ""
+if len(sys.argv) >= 3:
+  add_str = sys.argv[2]
+
+h = exec("md5sum '{}'".format(fname))
+(start, end) = (h[:2], h[2:12])
+uploaded_name = start + "/" + end + "_" + basename + add_str
+
+exec("ssh " + upload_server + " 'cd " + upload_path + " && (mkdir " +
+              start + " 2>/dev/null || true) && chmod o+r " + start +
+              " && cp index.html " + start + "/index.html'")
+exec("scp " + fname + " " + upload_server + ":" + upload_path + uploaded_name)
+exec("ssh " + upload_server + " 'chmod o+r " + upload_path + uploaded_name + "'")
+
+print(upload_url + uploaded_name)

@@ -5,7 +5,8 @@ import sys
 
 
 def usage():
-    print("Usage: " + sys.argv[0] + " <on|off>")
+    print("Usage: " + sys.argv[0] + " <on|off|scan>")
+    print("Hint: see /etc/wpa_supplicant/*.conf files")
     sys.exit(1)
 
 if len(sys.argv) < 2:
@@ -17,6 +18,8 @@ if opt == "on":
     cmd = "sudo systemctl start wpa_supplicant@wlp2s0"
 elif opt == "off":
     cmd = "sudo systemctl stop wpa_supplicant@wlp2s0"
+elif opt == "scan":
+    cmd = "sudo iw dev wlp2s0 scan"
 else:
     usage()
 

@@ -70,5 +70,9 @@ source ~/.mutt/eaxme
 # macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/devzen<enter><change-folder>!<enter>'
 # macro index <f4> '<sync-mailbox><enter-command>source ~/.mutt/pgpro<enter><change-folder>!<enter>'
 
+# emulate trash folder
+folder-hook . 'macro index d "<save-message>=Trash<enter>"' 
+folder-hook =Trash 'macro index d <delete-message>'
+
 # address book
 source ~/.mutt/contacts

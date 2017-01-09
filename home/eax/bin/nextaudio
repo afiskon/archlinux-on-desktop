@@ -6,7 +6,7 @@ import os
 import re
 from subprocess import check_output, call
 
-default_vol = '32%'
+default_vol = '100%'
 
 null = open(os.devnull, 'w')
 
@@ -34,7 +34,7 @@ print('    ' + sink_default)
 # Get next sink
 index_default = [sink for sink in sinks].index(sink_default)
 sink_next = sinks[(index_default + 1) % len(sinks)]
-print('Next sink:')
+print('Next sink (making it current):')
 print('    ' + sink_next)
 
 # Set new default sink

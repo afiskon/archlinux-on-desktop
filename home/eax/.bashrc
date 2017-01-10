@@ -13,9 +13,12 @@ PS1='[\u@\h \w]\$ '
 complete -W 'create types list start stop vnc ssh ssh-copy-id change-ports '\
 'eject-disk delete rename clone export import' vm
 
+export TMPDIR=/home/eax/temp
 export PATH="/home/eax/bin:/home/eax/work/postgrespro/postgresql-install/bin:$PATH"
 export EDITOR=vim
 export HISTCONTROL=ignorespace
+# for arduino.mk
+export ARDUINODIR=/home/eax/opt/arduino
 
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 source /usr/bin/virtualenvwrapper.sh

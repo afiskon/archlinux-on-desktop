@@ -14,6 +14,8 @@ complete -W 'create types list start stop vnc ssh ssh-copy-id change-ports '\
 'eject-disk delete rename clone export import' vm
 
 export TMPDIR=/home/eax/temp
+mkdir -p $TMPDIR
+
 export PATH="/home/eax/bin:/home/eax/work/postgrespro/postgresql-install/bin:$PATH"
 export EDITOR=vim
 export HISTCONTROL=ignorespace

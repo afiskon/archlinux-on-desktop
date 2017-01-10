@@ -22,7 +22,8 @@ set viminfo='1000,f1
 nmap <C-n> :set invnumber<Enter>
 
 " wordwrap
-" :set textwidth=79
+"set textwidth=72
+"set wrap
 
 nmap <C-p> <C-w><C-]><C-w>T
 
@@ -57,10 +58,12 @@ set dir=~/temp/vimswap
 highlight ExtraWhitespace ctermbg=red guibg=red
 " match ExtraWhitespace /\s\+$/
 " Doesn't work too good for Python
-match ExtraWhitespace /\([ ]\{4\}\|\s\+$\)/
+" match ExtraWhitespace /\([ ]\{4\}\|\s\+$\)/
 
 " limit the width of e-mail text to 72 characters
-au BufRead /tmp/mutt-* set tw=72
+au BufRead /home/eax/temp/mutt-* set tw=72
+" enable spellcheck for all emails
+au BufRead /home/eax/temp/mutt-* SpellOn
 
 " quickfix example
 ":set makeprg=grep

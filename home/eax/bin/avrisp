@@ -5,7 +5,7 @@ import sys
 
 
 def usage():
-    print("Usage: " + sys.argv[0] + " <dump|upload>")
+    print("Usage: " + sys.argv[0] + " <dump|upload|info>")
     print("Hint: to disassemble dumped flash use `avr-objdump -D -m avr2 flash.hex`")
     sys.exit(1)
 
@@ -22,6 +22,8 @@ if opt == "dump":
     cmd = avrdude + "-D -U flash:r:flash.hex:i"
 elif opt == "upload":
     cmd = avrdude + "-e -U flash:w:main.hex -U lock:w:0x0F:m"
+elif opt == "info":
+    cmd = avrdude + "-D"
 else:
     usage()
 

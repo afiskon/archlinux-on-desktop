@@ -16,7 +16,7 @@ programmer = 'avrisp'
 device = 'm328p'
 
 avrdude = ( 'avrdude -C ' +
-  '/home/eax/opt/arduino/hardware/tools/avr/etc/avrdude.conf ' +
+  '~/opt/arduino/hardware/tools/avr/etc/avrdude.conf ' +
   '-P /dev/ttyUSB0 -b 19200 -c ' + programmer + ' -p ' + device + ' -v ' )
 
 opt = sys.argv[1]

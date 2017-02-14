@@ -16,11 +16,15 @@ complete -W 'create types list start stop vnc ssh ssh-copy-id change-ports '\
 export TMPDIR=/home/eax/temp
 mkdir -p $TMPDIR
 
-export PATH="/home/eax/bin:/home/eax/work/postgrespro/postgresql-install/bin:$PATH"
+export PATH="/home/eax/bin:/home/eax/work/postgrespro/postgresql-install/bin:/home/eax/opt/arduino/hardware/tools/avr/bin:$PATH"
 export EDITOR=vim
 export HISTCONTROL=ignorespace
 # for arduino.mk
 export ARDUINODIR=/home/eax/opt/arduino
+
+alias cal='cal -n 2'
+alias rndc='find ./ -type f | grep "\.c" | shuffle | tail -n 1'
+alias avrdude='avrdude -C /home/eax/opt/arduino/hardware/tools/avr/etc/avrdude.conf'
 
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 source /usr/bin/virtualenvwrapper.sh

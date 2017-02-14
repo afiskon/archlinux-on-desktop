@@ -23,7 +23,7 @@ export HISTCONTROL=ignorespace
 export ARDUINODIR=/home/eax/opt/arduino
 
 alias cal='cal -n 2'
-alias rndc='find ./ -type f | grep "\.c" | shuffle | tail -n 1'
+alias rndc='find ./ -type f | egrep "\.c$" | shuffle | tail -n 1'
 alias avrdude='avrdude -C /home/eax/opt/arduino/hardware/tools/avr/etc/avrdude.conf'
 
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3

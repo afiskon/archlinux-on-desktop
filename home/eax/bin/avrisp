@@ -12,19 +12,31 @@ def usage():
 if len(sys.argv) < 2:
     usage()
 
-programmer = 'avrisp'
-device = 'm328p'
+# TODO: determine at runtime
+# port = "/dev/ttyUSB0"
+port = "/dev/ttyACM0"
+
+# TODO: determine at runtime
+# programmer = 'avrisp'
+programmer = 'arduino'
+
+# TODO: determine at runtime
+device = 'atmega328p'
+# device = 'atmega32u4'
+# device = 't85'
 
 avrdude = ( 'avrdude -C ' +
   '~/opt/arduino/hardware/tools/avr/etc/avrdude.conf ' +
-  '-P /dev/ttyUSB0 -b 19200 -c ' + programmer + ' -p ' + device + ' -v ' )
+  '-P ' + port + ' -b 19200 -c ' + programmer + ' -p ' + device + ' -v ' )
 
 opt = sys.argv[1]
 
 if opt == "dump":
     cmd = avrdude + "-D -U flash:r:flash.hex:i"
 elif opt == "upload":
-    cmd = avrdude + "-e -U flash:w:main.hex -U lock:w:0x0F:m"
+	# -U lock ... doesn't work with attiny85
+    # cmd = avrdude + "-e -U flash:w:main.hex -U lock:w:0x0F:m"
+    cmd = avrdude + "-e -U flash:w:main.hex"
 elif opt == "info":
     cmd = avrdude + "-D"
 elif opt == "set-fuses":

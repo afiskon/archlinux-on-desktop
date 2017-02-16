@@ -6,6 +6,9 @@ set number
 set tabstop=4
 set shiftwidth=4
 
+" don't switch a keymap during normal mode
+set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
+
 " Doesn't work well in Ctr+C, Ctr+V cases
 " set autoindent
 

@@ -13,6 +13,7 @@ PS1='[\u@\h \w]\$ '
 complete -W 'create types list start stop vnc ssh ssh-copy-id change-ports '\
 'eject-disk delete rename clone export import' vm
 
+export PAGER=/usr/bin/less
 export TMPDIR=/home/eax/temp
 mkdir -p $TMPDIR
 

@@ -161,11 +161,12 @@ for_window [class="(?i)gimp"] floating enable
 # finds out, if available)
 bar {
 	position top
-        status_command i3status
+	status_command i3status
 }
 
 # exec randwallpaper &
-exec feh --bg-scale ~/data/wallpapers/archlinux-black.png &
+exec feh --bg-scale ~/data/wallpapers/archlinux-logo.png &
 exec pulseaudio --start &
 exec xxkb &
 exec dunst &
+exec nm-applet &

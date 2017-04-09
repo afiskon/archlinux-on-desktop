@@ -5,8 +5,9 @@ import sys
 
 
 def usage():
-    print("Usage: " + sys.argv[0] + " <on|off|scan>")
-    print("Hint: see /etc/wpa_supplicant/*.conf files")
+    print("Usage: " + sys.argv[0] + " <on|off|scan|disconnect>")
+    # print("Hint: see /etc/wpa_supplicant/*.conf files")
+    print("Hint: to connect a network say `nmcli dev wifi connect <name> password <password>`")
     sys.exit(1)
 
 if len(sys.argv) < 2:
@@ -15,11 +16,16 @@ if len(sys.argv) < 2:
 opt = sys.argv[1]
 
 if opt == "on":
-    cmd = "sudo systemctl start wpa_supplicant@wlp2s0"
+    # cmd = "sudo systemctl start wpa_supplicant@wlp2s0"
+    cmd = "nmcli r wifi on"
 elif opt == "off":
-    cmd = "sudo systemctl stop wpa_supplicant@wlp2s0"
+    # cmd = "sudo systemctl stop wpa_supplicant@wlp2s0"
+    cmd = "nmcli r wifi off"
 elif opt == "scan":
-    cmd = "sudo iw dev wlp2s0 scan"
+    # cmd = "sudo iw dev wlp2s0 scan"
+    cmd = "nmcli dev wifi list"
+elif opt == "disconnect":
+    cmd = "nmcli dev disconnect wlp2s0"
 else:
     usage()
 

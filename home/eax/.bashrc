@@ -13,7 +13,6 @@ PS1='[\u@\h \w]\$ '
 complete -W 'create types list start stop vnc ssh ssh-copy-id change-ports '\
 'eject-disk delete rename clone export import' vm
 
-export PAGER=/usr/bin/less
 export TMPDIR=/home/eax/temp
 mkdir -p $TMPDIR
 
@@ -22,7 +21,9 @@ export EDITOR=vim
 export HISTCONTROL=ignorespace
 # for arduino.mk
 export ARDUINODIR=/home/eax/opt/arduino
+export PAGER='vim -u ~/.vimrc.less -'
 
+alias less="vim -u ~/.vimrc.less -"
 alias cal='cal -n 2'
 alias rndc='find ./ -type f | egrep "\.c$" | shuffle | tail -n 1'
 alias avrdude='avrdude -C /home/eax/opt/arduino/hardware/tools/avr/etc/avrdude.conf'
@@ -33,11 +34,11 @@ source /usr/bin/virtualenvwrapper.sh
 alias setclip='xclip -selection c'
 alias getclip='xclip -selection clipboard -o'
 
-alias mutt_eaxme='mutt -e "source ~/.mutt/eaxme"'
-alias mutt_devzen='mutt -e "source ~/.mutt/devzen"'
-alias mutt_pgpro='mutt -e "source ~/.mutt/pgpro"'
+#alias mutt_eaxme='mutt -e "source ~/.mutt/eaxme"'
+#alias mutt_devzen='mutt -e "source ~/.mutt/devzen"'
+#alias mutt_pgpro='mutt -e "source ~/.mutt/pgpro"'
 
-alias less='less -x4'
+# alias less='less -x4'
 
 alias lynx="lynx -display_charset=utf8"
 alias www="lynx -dump"

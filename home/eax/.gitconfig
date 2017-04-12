@@ -1,7 +1,12 @@
+[user]
+	email = afiskon@gmail.com
+	name = Aleksander Alekseev
 [merge]
 	tool = vimdiff
 [mergetool]
 	prompt = false
 [core]
 	excludesfile = /home/eax/.gitignore_global
-	pager = less -x4
+    pager = vim -u ~/.vimrc.less -
+[color]
+	ui = false

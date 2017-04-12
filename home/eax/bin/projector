@@ -3,6 +3,7 @@
 import subprocess
 import sys
 
+print("DEPRECATED: Use arandr, dude!")
 
 def usage():
     print("Usage: " + sys.argv[0] + " <on|off>")
@@ -20,4 +21,4 @@ elif opt == "off":
 else:
     usage()
 
-subprocess.call(cmd, shell=True)
+# subprocess.call(cmd, shell=True)

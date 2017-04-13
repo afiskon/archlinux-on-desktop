@@ -24,6 +24,7 @@ export ARDUINODIR=/home/eax/opt/arduino
 export PAGER='vim -u ~/.vimrc.less -'
 
 alias less="vim -u ~/.vimrc.less -"
+alias man='env PAGER=less man'
 alias cal='cal -n 2'
 alias rndc='find ./ -type f | egrep "\.c$" | shuffle | tail -n 1'
 alias avrdude='avrdude -C /home/eax/opt/arduino/hardware/tools/avr/etc/avrdude.conf'

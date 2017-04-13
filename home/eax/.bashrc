@@ -21,10 +21,12 @@ export EDITOR=vim
 export HISTCONTROL=ignorespace
 # for arduino.mk
 export ARDUINODIR=/home/eax/opt/arduino
-export PAGER='vim -u ~/.vimrc.less -'
+#export PAGER='vim -u ~/.vimrc.less -'
+export PAGER=less
 
-alias less="vim -u ~/.vimrc.less -"
-alias man='env PAGER=less man'
+alias less='less -x4'
+#alias less="vim -u ~/.vimrc.less -"
+#alias man='env PAGER=less man'
 alias cal='cal -n 2'
 alias rndc='find ./ -type f | egrep "\.c$" | shuffle | tail -n 1'
 alias avrdude='avrdude -C /home/eax/opt/arduino/hardware/tools/avr/etc/avrdude.conf'
@@ -39,7 +41,6 @@ alias getclip='xclip -selection clipboard -o'
 #alias mutt_devzen='mutt -e "source ~/.mutt/devzen"'
 #alias mutt_pgpro='mutt -e "source ~/.mutt/pgpro"'
 
-# alias less='less -x4'
 
 alias lynx="lynx -display_charset=utf8"
 alias www="lynx -dump"

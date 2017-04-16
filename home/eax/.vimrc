@@ -30,6 +30,8 @@ nmap <C-n> :set invnumber<Enter>
 
 nmap <C-p> <C-w><C-]><C-w>T
 
+set tags=./.tags,.tags,./tags,tags
+
 command! CommitPush :!git commit -am fix ; git push origin HEAD
 command! TabToSpace :1,$s/\t/    /g
 command! Breakpoints :!cat % | perl -ne 'if($_ =~ /^(\w+)\(/) { print "b $1\n"; }'
@@ -39,8 +41,8 @@ command! BackupVimrc :!scp ~/.vimrc vpn:.vimrc
 command! ReloadVimrc :so $MYVIMRC
 command! SpellOn :set spell spelllang=en_us,ru_ru
 command! SpellOff :set nospell
-command! MarkdownPreview !python3 -m markdown % -f /tmp/vim-preview.html && chromium-browser /tmp/vim-preview.html
-command! MarkdownUpdate !python3 -m markdown % -f /tmp/vim-preview.html
+command! MarkdownPreview !python -m markdown % -f ~/temp/t.html && chromium ~/temp/t.html
+command! MarkdownUpdate !python -m markdown % -f ~/temp/t.html
 " list global marks
 command! Marks :marks ABCDEFGHIJKLMNOPQRSTUVWXYZ<Enter>
 
@@ -72,22 +74,33 @@ au BufRead /home/eax/temp/mutt-* SpellOn
 ":set makeprg=grep
 ":set errorformat=%f:%l:%m
 
-"filetype plugin on
-"" set omnifunc=syntaxcomplete#Complete
-
+" ============== vvv VUNDLE vvv =================
+"
 "set nocompatible              " be iMproved, required
 "filetype off                  " required
-
+"
 "" set the runtime path to include Vundle and initialize
 "set rtp+=~/.vim/bundle/Vundle.vim
 "call vundle#begin()
+"" alternatively, pass a path where Vundle should install plugins
+""call vundle#begin('~/some/path/here')
 
-"" Plugin 'rust-lang/rust.vim'
-"" Plugin 'phildawes/racer'
-"Plugin 'derekwyatt/vim-scala'
-"" Plugin 'zah/nimrod.vim'
+"" let Vundle manage Vundle, required
+"Plugin 'VundleVim/Vundle.vim'
+
+"Plugin 'rust-lang/rust.vim'
 
 "" All of your Plugins must be added before the following line
 "call vundle#end()            " required
 "filetype plugin indent on    " required
-
+"" To ignore plugin indent changes, instead use:
+""filetype plugin on
+""
+"" Brief help
+"" :PluginList       - lists configured plugins
+"" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+"" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+"" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+""
+"" see :h vundle for more details or wiki for FAQ
+"" Put your non-Plugin stuff after this line

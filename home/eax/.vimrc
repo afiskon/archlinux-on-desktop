@@ -41,7 +41,8 @@ command! BackupVimrc :!scp ~/.vimrc vpn:.vimrc
 command! ReloadVimrc :so $MYVIMRC
 command! SpellOn :set spell spelllang=en_us,ru_ru
 command! SpellOff :set nospell
-command! MarkdownPreview !python -m markdown % -f ~/temp/t.html && chromium ~/temp/t.html
+command! MarkdownPreview !python -m markdown % -f ~/temp/t.html &&
+ \ chromium ~/temp/t.html
 command! MarkdownUpdate !python -m markdown % -f ~/temp/t.html
 " list global marks
 command! Marks :marks ABCDEFGHIJKLMNOPQRSTUVWXYZ<Enter>

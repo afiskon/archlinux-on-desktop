@@ -6,6 +6,9 @@ set number
 set tabstop=4
 set shiftwidth=4
 
+set modeline
+set modelines=10
+
 " don't switch a keymap during normal mode
 set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
 

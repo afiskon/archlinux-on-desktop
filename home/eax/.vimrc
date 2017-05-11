@@ -73,6 +73,8 @@ highlight ExtraWhitespace ctermbg=red guibg=red
 au BufRead /home/eax/temp/mutt-* set tw=72
 " enable spellcheck for all emails
 au BufRead /home/eax/temp/mutt-* SpellOn
+" rules for C++ source files
+au BufRead *.cpp set ai et ts=4 sw=4
 
 " quickfix example
 ":set makeprg=grep

@@ -70,11 +70,12 @@ highlight ExtraWhitespace ctermbg=red guibg=red
 " match ExtraWhitespace /\([ ]\{4\}\|\s\+$\)/
 
 " limit the width of e-mail text to 72 characters
-au BufRead /home/eax/temp/mutt-* set tw=72
+au BufRead /home/eax/temp/mutt-* set wrap tw=72
 " enable spellcheck for all emails
 au BufRead /home/eax/temp/mutt-* SpellOn
 " rules for C++ source files
 au BufRead *.cpp set ai et ts=4 sw=4
+au BufRead *.md set wrap tw=80
 
 " quickfix example
 ":set makeprg=grep

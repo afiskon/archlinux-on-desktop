@@ -1,4 +1,11 @@
-#!/bin/sh
+#!/usr/bin/env bash
+
+LINES=`vm list | grep -v 'powered off' | wc -l`
+
+if [[ "$LINES" -gt "2" ]]; then
+  notify-send -t 3000 "Aborted. There are running VMs."
+  exit 1
+fi
 
 i3lock -c 000000 & 
 

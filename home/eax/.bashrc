@@ -7,20 +7,35 @@
 
 advice | cowsay
 
+# don't close the shell on Ctr+D
+set -o ignoreeof
+
 alias ls='ls --color=auto'
 PS1='[\u@\h \w]\$ '
 
 complete -W 'create types list start stop vnc ssh ssh-copy-id change-ports '\
 'eject-disk delete rename clone export import' vm
 
+export PGINSTALL=/home/eax/work/postgrespro/postgresql-install
 export TMPDIR=/home/eax/temp
 mkdir -p $TMPDIR
 
 export PATH="/home/eax/bin:/home/eax/work/postgrespro/postgresql-install/bin:/home/eax/opt/arduino/hardware/tools/avr/bin:$PATH"
 export EDITOR=vim
 export HISTCONTROL=ignorespace
-# for arduino.mk
+# for (simple) arduino.mk
 export ARDUINODIR=/home/eax/opt/arduino
+
+# For Arduino.mk
+#############
+# Directory where Arduino is installed
+export ARDUINO_DIR=/home/eax/opt/arduino
+# Directory where you have copied the makefile
+export ARDMK_DIR=/usr/share/arduino/
+# Directory where avr tools are installed
+export AVR_TOOLS_DIR=/home/eax/opt/arduino/hardware/tools/avr
+#############
+
 #export PAGER='vim -u ~/.vimrc.less -'
 export PAGER=less
 

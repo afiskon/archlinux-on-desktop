@@ -35,7 +35,7 @@ nmap <C-p> <C-w><C-]><C-w>T
 
 set tags=./.tags,.tags,./tags,tags
 
-let @e = 'i	if err != nil {       return err    }'
+let @e = 'i	if err != nil {		return nil, err	}'
 
 command! CommitPush :!git commit -am fix ; git push origin HEAD
 command! TabToSpace :1,$s/\t/    /g

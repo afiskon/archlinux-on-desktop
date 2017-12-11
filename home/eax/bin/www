@@ -1,0 +1,14 @@
+#!/usr/bin/env python3
+
+import sys
+import subprocess
+
+if len(sys.argv) < 2:
+    print("Usage: " + sys.argv[0] + " <url>")
+    sys.exit(1)
+
+url = sys.argv[1]
+subprocess.call(
+	("wget --no-check-certificate {} -O ~/temp/www-temp.html "+
+	"&& lynx -display_charset=utf-8 -dump ~/temp/www-temp.html").format(url),
+	shell = True)

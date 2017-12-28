@@ -60,8 +60,10 @@ alias getclip='xclip -selection clipboard -o'
 
 
 alias lynx="lynx -display_charset=utf8"
+alias www="lynx -dump"
 alias gitlog='git log --graph --pretty=format:"%h  %ai  %an <%ae>  %s"'
 alias gpg="gpg --keyserver pgp.mit.edu"
 alias commitpush="git commit -am 'fix' ; git push origin HEAD"
+alias shortlog="git log --pretty=format:'%h - %an, %ar : %s'"
 alias rain="mplayer -loop 0 ~/data/heap/rain-and-thunder.mp3"
 alias getvideo="youtube-dl -i -o '%(autonumber)s-%(title)s.%(ext)s'"

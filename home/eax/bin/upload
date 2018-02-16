@@ -6,7 +6,7 @@ import subprocess
 
 upload_server = "afiskon@afiskon.ru"
 upload_path = "afiskon.ru/s/" # NB: ending with /
-upload_url = "http://afiskon.ru/s/" # NB: ending with /
+upload_url = "https://afiskon.ru/s/" # NB: ending with /
 
 def exec(cmd):
   temp = subprocess.check_output(cmd, shell = True)

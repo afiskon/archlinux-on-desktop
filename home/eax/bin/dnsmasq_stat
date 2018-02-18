@@ -1,0 +1,6 @@
+#!/bin/sh
+
+set -e
+
+sudo killall -s USR1 dnsmasq
+journalctl -r | head -n 100 | grep dnsmasq | head -n 5

@@ -12,7 +12,7 @@ set -o ignoreeof
 
 alias yaourt='yaourt --noconfirm'
 alias ls='ls --color=auto'
-PS1='[\u@\h \w]\$ '
+PS1='\u@\h:\w\$ '
 
 complete -W 'create types list start stop vnc ssh ssh-copy-id change-ports '\
 'eject-disk delete rename clone export import' vm

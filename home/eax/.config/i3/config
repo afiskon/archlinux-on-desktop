@@ -171,3 +171,5 @@ exec pulseaudio --start &
 exec xxkb &
 exec dunst &
 exec nm-applet &
+# see https://www.reddit.com/r/archlinux/comments/2v4x92/prevent_screen_from_going_to_sleep_while_watching/
+exec xset -dpms &

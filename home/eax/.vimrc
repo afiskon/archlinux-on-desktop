@@ -37,6 +37,7 @@ set tags=./.tags,.tags,./tags,tags
 
 let @e = 'i	if err != nil {		return nil, err	}'
 
+command! VimSet :normal i/* vim: set ai et ts=4 sw=4: */
 command! CommitPush :!git commit -am fix ; git push origin HEAD
 command! TabToSpace :1,$s/\t/    /g
 command! Breakpoints :!cat % | perl -ne 'if($_ =~ /^(\w+)\(/) { print "b $1\n"; }'

@@ -1,0 +1,8 @@
+#!/bin/sh
+
+set -e
+
+xclip -o > ~/temp/paste.txt
+URL=`upload ~/temp/paste.txt`
+echo $URL | xclip -selection c
+notify-send "Uploaded!" -t 2500

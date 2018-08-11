@@ -1,0 +1,11 @@
+#!/bin/sh
+
+set -e
+
+uptime
+echo ''
+echo ''
+
+sudo pacman -Syu
+yaourt --noconfirm -S libsigrok-git libsigrokdecode-git sigrok-cli-git pulseview-git
+echo 'DONE!'

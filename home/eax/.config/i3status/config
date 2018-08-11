@@ -1,3 +1,4 @@
+# vim: set ai et ts=4 sw=4:
 # i3status configuration file.
 # see "man i3status" for documentation.
 
@@ -7,8 +8,8 @@
 # If the above line is not correctly displayed, fix your editor first!
 
 general {
-        colors = true
-        interval = 5
+    colors = true
+    interval = 5
 }
 
 # order += "ipv6"
@@ -25,53 +26,53 @@ order += "load"
 order += "tztime local"
 
 wireless wlp2s0 {
-        format_up = "W1: (%quality @ %essid) %ip"
-        format_down = "W1: off"
+    format_up = "W1: (%quality @ %essid) %ip"
+    format_down = "W1: off"
 }
 
 wireless wlp0s20u3 {
-        format_up = "W2: (%quality @ %essid) %ip"
-        format_down = "W2: off"
+    format_up = "W2: (%quality @ %essid) %ip"
+    format_down = "W2: off"
 }
 
 ethernet enp0s25 {
-        # if you use %speed, i3status requires root privileges
-        format_up = "E: %ip"
-        format_down = "E: off"
+    # if you use %speed, i3status requires root privileges
+    format_up = "E: %ip"
+    format_down = "E: off"
 }
 
 ethernet tun0 {
-        # if you use %speed, i3status requires root privileges
-        format_up = "VPN: %ip"
-        format_down = "VPN: off"
+    # if you use %speed, i3status requires root privileges
+    format_up = "VPN: %ip"
+    format_down = "VPN: off"
 }
 
 battery 0 {
-        format = "%status %percentage %remaining"
-	path = "/sys/class/power_supply/CMB1/uevent"
+    format = "%status %percentage %remaining"
+    path = "/sys/class/power_supply/CMB1/uevent"
 }
 
 battery 1 {
-        format = "%status %percentage %remaining"
-	path = "/sys/class/power_supply/CMB2/uevent"
+    format = "%status %percentage %remaining"
+    path = "/sys/class/power_supply/CMB2/uevent"
 }
 
 run_watch DHCP {
-        pidfile = "/var/run/dhclient*.pid"
+    pidfile = "/var/run/dhclient*.pid"
 }
 
 run_watch VPN {
-        pidfile = "/var/run/openvpn.running"
+    pidfile = "/var/run/openvpn.running"
 }
 
 tztime local {
-        format = "%Y-%m-%d %H:%M:%S"
+    format = "%Y-%m-%d %H:%M:%S"
 }
 
 load {
-        format = "%1min"
+    format = "%1min"
 }
 
 disk "/home/eax" {
-        format = "%avail"
+    format = "%avail"
 }

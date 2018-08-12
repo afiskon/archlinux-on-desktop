@@ -5,7 +5,7 @@ import sys
 
 
 def usage():
-    print("Usage: " + sys.argv[0] + " <on|offt>")
+    print("Usage: " + sys.argv[0] + " <on|off>")
     sys.exit(1)
 
 if len(sys.argv) < 2:

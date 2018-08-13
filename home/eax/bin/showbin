@@ -1,0 +1,24 @@
+#!/usr/bin/env python3
+# vim: set ai et ts=4 sw=4:
+
+import os
+import sys
+import subprocess
+import tempfile
+
+def run(cmd):
+    code = subprocess.call(cmd, shell=True)
+    if code != 0:
+        print("Command `%s` returned non-zero status: %d" % (cmd, code))
+        sys.exit(1)
+
+if len(sys.argv) < 2:
+    print("Usage: " + sys.argv[0] + " <infile>")
+    sys.exit(1)
+
+infile = sys.argv[1]
+outfile = tempfile.gettempdir() + "/temp.pgm";
+fsize = os.path.getsize(infile)
+
+run('(echo "P5 512 %d 255"; cat %s) > %s' % (fsize / 512, infile, outfile))
+run('gimp %s' % (outfile))

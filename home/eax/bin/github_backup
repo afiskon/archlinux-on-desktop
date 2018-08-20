@@ -1,0 +1,53 @@
+#!/usr/bin/env python3
+# vim: set ai et ts=4 sw=4:
+
+import subprocess
+import getpass
+import sys
+import re
+
+ignore_list = [
+        # large and outdated repository
+        "git://github.com/afiskon/afiskon.github.io.git"
+    ]
+
+def eprint(msg):
+    print(msg, file=sys.stderr)
+    sys.exit(1)
+
+if len(sys.argv) < 2:
+    eprint("Usage: {} <username>".format(sys.argv[0]))
+
+username = sys.argv[1]
+password = getpass.getpass("{}'s password: ".format(username))
+
+page = 0
+
+while True:
+    page += 1
+    cmd = ("curl -s -u '{}:{}' https://api.github.com/user/repos" +
+           "?page={} | jq -r '.[].git_url' 2>/dev/null"
+          ).format(username, password, page)
+
+    replist = subprocess.check_output(cmd, shell=True)
+    replist = replist.decode('utf-8').strip()
+
+    if not replist:
+        if page == 1:
+            eprint("Something is wrong. Auth failed?")
+        break
+
+    for repo in replist.split("\n"):
+        if repo.find("github.com/" + username) == -1:
+            print("Ignoring {} - looks like a company repository".format(repo))
+            continue
+        if repo in ignore_list:
+            print("Ignoring {} - in ignore_list".format(repo))
+            continue
+        print("Cloning {}...".format(repo))
+        cmd = "git clone {} 2>/dev/null".format(repo)
+        code = subprocess.call(cmd, shell=True)
+        if code != 0:
+            eprint("Command '{}' failed with code {}".format(cmd, code))
+
+print("All done!")

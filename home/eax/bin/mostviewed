@@ -1,0 +1,73 @@
+#!/usr/bin/env python3
+# vim: set ai et ts=4 sw=4:
+
+import sys
+import urllib3
+import re
+
+urllib3.disable_warnings()
+
+http = urllib3.PoolManager()
+
+headers = urllib3.make_headers()
+headers['user-agent'] = u'Mozilla/5.0 (compatible; MSIE 9.0; ' + \
+    u'Windows NT 6.0; Trident/5.0;  Trident/5.0)'
+
+def get_content(url):
+    res = http.urlopen("GET", url, headers = headers)
+    if res.status != 200:
+        raise Exception("res.status == " + str(res.status) +
+            " for url " + url)
+    return res.data.decode("utf-8")
+
+def get_stat(domain, date):
+    stat_url = "http://www.liveinternet.ru/stat/" + domain + \
+        "/pages.html?date=" + date + \
+        "&period=month&total=yes&per_page=100"
+
+    data = get_content(stat_url)
+
+    http_home = "http://" + domain + "/"
+    https_home = "http://" + domain + "/"
+    re_str = """(?s)for="id_\d+"><a href="([^"]+)"[^>]*>.*?""" + \
+        """<td>([\d,]+)</td>"""
+    for m in re.finditer(re_str, data):
+        [url, count] = [ m.group(x) for x in [1,2] ]
+        if url == http_home or url == https_home:
+            continue
+        yield ( url, int(count.replace(",", "")) )
+
+def get_title(url):
+    data = get_content(url)
+    m = re.search("<h2>(.*?)</h2>", data)
+    return m.group(1)
+
+def get_ending(count):
+    rem = count % 100
+    if 5 <= rem and rem <= 20:
+        return "ов"
+    rem = count % 10
+    if rem == 1:
+        return ""
+    if 2 <= rem and rem <= 4:
+        return "а"
+    return "ов"
+
+if len(sys.argv) < 4:
+    print("Usage: " + sys.argv[0] + " <domain> <date> <number>")
+    sys.exit(1)
+
+[domain, date, number] = sys.argv[1:4]
+number = int(number)
+
+all_stat = list(get_stat(domain, date))
+
+print("<ul>")
+for (url, count) in all_stat[:number]:
+    title = get_title(url)
+    url = url.replace("http://", "https://")
+    print('<li><a href="' + url+ '">' + title + '</a>, ' +
+        str(count) + ' просмотр' + get_ending(count) +
+        ' за месяц</li>')
+
+print("</ul>")

@@ -1,0 +1,5 @@
+#!/bin/sh
+
+set -e 
+
+pacman -Qi | awk '/^Name/{name=$3} /^Version/{print name,$3}'

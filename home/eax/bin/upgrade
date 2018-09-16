@@ -7,5 +7,7 @@ echo ''
 echo ''
 
 sudo pacman -Syu
-yaourt --noconfirm -S libsigrok-git libsigrokdecode-git sigrok-cli-git pulseview-git telegram-desktop-bin
+yaourt --noconfirm -S telegram-desktop-bin cura \
+  libsigrok-git libsigrokdecode-git sigrok-cli-git pulseview-git \
+  soapysdr-git limesuite-git gr-osmosdr-git gqrx-git
 echo 'DONE!'

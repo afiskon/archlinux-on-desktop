@@ -1,0 +1,12 @@
+#!/bin/sh
+
+QUAL="fast" # see https://trac.ffmpeg.org/wiki/Encode/H.264
+YOUTUBE_URL="rtmp://a.rtmp.youtube.com/live2"
+YOUTUBE_KEY="SECRET"
+
+ffmpeg \
+    -video_size 1366x768 -f x11grab -i ':0.0+0,0' \
+    -f pulse -ac 2 -i default \
+	-vcodec libx264 -pix_fmt rgb24 -preset $QUAL \
+    -acodec libmp3lame -ar 44100 -threads 6 -qscale 3 -b:a 712000 -bufsize 512k \
+    -f flv "$YOUTUBE_URL/$YOUTUBE_KEY"

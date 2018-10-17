@@ -9,5 +9,6 @@ echo ''
 sudo pacman -Syu
 yaourt --noconfirm -S telegram-desktop-bin cura \
   libsigrok-git libsigrokdecode-git sigrok-cli-git pulseview-git \
-  soapysdr-git limesuite-git gr-osmosdr-git gqrx-git
+  soapysdr-git limesuite-git gr-limesdr-git \
+  uconfig-git radare2-git radare2-cutter-git # gqrx-git gr-osmosdr-git --- complain on boost
 echo 'DONE!'

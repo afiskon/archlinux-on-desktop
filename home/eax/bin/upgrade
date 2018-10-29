@@ -10,5 +10,7 @@ sudo pacman -Syu
 yaourt --noconfirm -S telegram-desktop-bin cura \
   libsigrok-git libsigrokdecode-git sigrok-cli-git pulseview-git \
   soapysdr-git limesuite-git gr-limesdr-git \
-  uconfig-git radare2-git radare2-cutter-git # gqrx-git gr-osmosdr-git --- complain on boost
+  uconfig-git binwalk-git radare2-git radare2-cutter-git \
+  gr-osmosdr-git gqrx-git veles-git
+
 echo 'DONE!'

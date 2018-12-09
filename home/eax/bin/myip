@@ -2,6 +2,6 @@
 
 set -e
 
-echo -n "your external IP is    " 
+/bin/echo -n "your external IP is    " 
 curl https://eax.me/ip/ 
 host afiskon.ru
